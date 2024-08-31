@@ -79,7 +79,7 @@
             <button class="button operator" onclick="setOperator('+')">+</button>
 
             <button class="button operator2" onclick="convertToFahrenheit()">T</button>
-            <button class="button operator2"></button>
+            <button class="button operator2" onclick="convertToKilogramos()">P</button>
             <button class="button operator2"></button>
             <button class="button operator2"></button>
         </div>
@@ -132,6 +132,13 @@
             const celsius = parseFloat(currentInput);
             const fahrenheit = (celsius * 1.8) + 32;
             currentInput = fahrenheit.toString();
+            updateDisplay();
+        }
+        function convertToKilogramos() {
+            if (currentInput === '') return;
+            const gramos = parseFloat(currentInput);
+            const kilogramos = gramos / 1000;
+            currentInput = kilogramos.toString();
             updateDisplay();
         }
 
