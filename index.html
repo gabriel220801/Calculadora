@@ -42,6 +42,13 @@
         .button.operator:hover {
             background-color: #f39c12;
         }
+
+        .button.operator2 {
+            background-color: #686868;
+        }
+        .button.operator2:hover {
+            background-color: #282929;
+        }
         .button:hover {
             background-color: #e0e0e0;
         }
@@ -70,6 +77,11 @@
             <button class="button" onclick="clearDisplay()">C</button>
             <button class="button operator" onclick="calculateResult()">=</button>
             <button class="button operator" onclick="setOperator('+')">+</button>
+
+            <button class="button operator2" onclick="convertToFahrenheit()">T</button>
+            <button class="button operator2"></button>
+            <button class="button operator2"></button>
+            <button class="button operator2"></button>
         </div>
     </div>
 
@@ -107,10 +119,19 @@
                 case '/':
                     result = parseFloat(firstOperand) / parseFloat(secondOperand);
                     break;
+                
             }
             currentInput = result;
             operator = '';
             firstOperand = '';
+            updateDisplay();
+        }
+
+        function convertToFahrenheit() {
+            if (currentInput === '') return;
+            const celsius = parseFloat(currentInput);
+            const fahrenheit = (celsius * 1.8) + 32;
+            currentInput = fahrenheit.toString();
             updateDisplay();
         }
 
