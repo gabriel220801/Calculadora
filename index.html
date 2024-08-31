@@ -149,6 +149,14 @@
             updateDisplay();
         }
 
+        function convertToPesos() {
+            if (currentInput === '') return;
+            const pesos = parseFloat(currentInput);
+            const dolares = pesos / 4127;
+            currentInput = dolares.toFixed(2);
+            updateDisplay();
+        }
+
         function clearDisplay() {
             currentInput = '';
             operator = '';
